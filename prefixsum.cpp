@@ -443,10 +443,10 @@ int main() {
     std::printf("sum example: %d (expected 34)\n", g.query({1, 1}, {2, 2}));
 
     // Same grid, max over the box [0, (1, 2)].
-    prefixsum::PrefixSum<int, 2, prefixsum::Max<int>> gm({3, 4}, {1, 2, 3, 4,
+    prefixsum::PrefixSum<int, 2, prefixsum::Xor<int>> gm({3, 4}, {1, 2, 3, 4,
                                                                   5, 6, 7, 8,
                                                                   9, 10, 11, 12});
-    std::printf("max example: %d (expected 7)\n", gm.prefix({1, 2}));
+    std::printf("max example: %d (expected 4)\n", gm.query({1, 1}, {2, 3}));
 
     auto small = [] { return (ll)rnd(0, 2000) - 1000; };
     auto bits = [] { return (ull)rng(); };
